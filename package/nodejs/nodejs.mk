@@ -54,6 +54,9 @@ else
 NODEJS_ARM_FP=softfp
 endif
 endif
+ifeq (,$(findstring("--with-float=hard",$(BR2_EXTRA_GCC_CONFIG_OPTIONS))))
+NODEJS_ARM_FP=hard
+endif
 
 define NODEJS_CONFIGURE_CMDS
 	(cd $(@D); \
